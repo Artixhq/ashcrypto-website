@@ -632,9 +632,9 @@
       <div class="bar-label">Market Sentiment</div>
       <div class="bar-row">
         <span class="bar-val" style="color:rgba(255,255,255,0.5)">Fear &amp; Greed Index</span>
-        <span class="bar-val" style="color:var(--gold)">72 — Greed</span>
+        <span class="bar-val" id="fear-greed-label" style="color:var(--gold)">-- — Loading</span>
       </div>
-      <div class="bar-track"><div class="bar-fill" style="width:72%"></div></div>
+      <div class="bar-track"><div class="bar-fill" id="fear-greed-fill" style="width:0%"></div></div>
     </div>
   </div>
 
@@ -832,6 +832,31 @@
 
   loadPrices();
   setInterval(loadPrices, 30000);
+
+  // Live Fear & Greed index (Alternative.me)
+  async function loadFearGreed() {
+    try {
+      const res = await fetch("https://api.alternative.me/fng/?limit=1");
+      const data = await res.json();
+      const latest = data?.data?.[0];
+      if (!latest) return;
+
+      const value = Number(latest.value);
+      const label = latest.value_classification || "Unknown";
+
+      const labelEl = document.getElementById("fear-greed-label");
+      const fillEl = document.getElementById("fear-greed-fill");
+      if (!labelEl || !fillEl) return;
+
+      labelEl.textContent = `${value} — ${label}`;
+      fillEl.style.width = `${Math.max(0, Math.min(100, value))}%`;
+    } catch (error) {
+      console.error("Failed to load Fear & Greed index:", error);
+    }
+  }
+
+  loadFearGreed();
+  setInterval(loadFearGreed, 300000);
 </script>
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
