@@ -33,7 +33,6 @@
     cursor: none;
   }
 
-  /* Custom cursor */
   .cursor {
     position: fixed; top: 0; left: 0; z-index: 9999;
     pointer-events: none;
@@ -55,7 +54,6 @@
     transition: all 0.15s ease;
   }
 
-  /* Noise texture overlay */
   body::before {
     content: '';
     position: fixed; inset: 0; z-index: 1;
@@ -65,7 +63,6 @@
     background-size: 200px 200px;
   }
 
-  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     padding: 24px 48px;
@@ -92,7 +89,6 @@
   }
   .nav-links a:hover { color: var(--gold); }
 
-  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex; align-items: center;
@@ -101,7 +97,6 @@
     overflow: hidden;
   }
 
-  /* Animated radial rays background */
   .hero-grid {
     position: absolute; inset: 0; overflow: hidden; z-index: 0;
   }
@@ -152,10 +147,7 @@
     0%, 100% { opacity: 0.6; transform: scale(1); }
     50% { opacity: 1; transform: scale(1.05); }
   }
-    to { background-position: 60px 60px; }
-  }
 
-  /* Radial glow */
   .hero-glow {
     position: absolute; z-index: 0;
     width: 700px; height: 700px;
@@ -163,15 +155,10 @@
     top: -100px; right: -100px;
     animation: glowPulse 4s ease-in-out infinite;
   }
-  @keyframes glowPulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.7; }
-  }
 
   .hero { justify-content: space-between; gap: 40px; }
   .hero-content { position: relative; z-index: 2; max-width: 560px; flex-shrink: 0; }
 
-  /* HERO RIGHT PANEL */
   .hero-right {
     position: relative; z-index: 2;
     display: flex; flex-direction: column; gap: 14px;
@@ -209,6 +196,7 @@
   .crypto-change { font-size: 12px; font-weight: 600; margin-top: 2px; }
   .crypto-change.up { color: #22c55e; }
   .crypto-change.down { color: #ef4444; }
+
   .hero-panel-label {
     font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.3);
     text-transform: uppercase; margin-bottom: 4px;
@@ -220,6 +208,7 @@
     animation: blink 1.5s infinite;
   }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
   .hero-panel-bar {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(245,184,0,0.1);
@@ -230,14 +219,7 @@
   .bar-track { background: rgba(255,255,255,0.06); border-radius: 99px; height: 6px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--gold), #ffdd57); }
   .bar-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-  .bar-row:last-child { margin-bottom: 0; }
   .bar-val { font-size: 12px; color: #fff; font-weight: 600; }
-
-  
-  .hero-eyebrow::before {
-    content: ''; display: block;
-    width: 40px; height: 1px; background: var(--gold);
-  }
 
   .hero-title {
     font-family: 'Bebas Neue', sans-serif;
@@ -257,41 +239,6 @@
     opacity: 0; animation: fadeUp 0.9s 0.6s forwards;
   }
 
-  .hero-cta {
-    display: flex; gap: 20px; align-items: center;
-    opacity: 0; animation: fadeUp 0.9s 0.8s forwards;
-  }
-  .btn-primary {
-    background: var(--gold);
-    color: #000;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px; font-weight: 400;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    padding: 16px 36px;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s;
-    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-  }
-  .btn-primary:hover {
-    background: var(--gold-light);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(245,184,0,0.25);
-  }
-  .btn-ghost {
-    color: var(--muted); font-size: 11px; letter-spacing: 0.2em;
-    text-transform: uppercase; text-decoration: none;
-    display: inline-flex; align-items: center; gap: 10px;
-    transition: color 0.3s;
-  }
-  .btn-ghost:hover { color: var(--text); }
-  .btn-ghost::after {
-    content: '→';
-    transition: transform 0.3s;
-  }
-  .btn-ghost:hover::after { transform: translateX(4px); }
-
-  /* Scroll indicator */
   .scroll-indicator {
     position: absolute; bottom: 40px; left: 48px; z-index: 2;
     display: flex; align-items: center; gap: 12px;
@@ -314,7 +261,6 @@
     100% { top: 140%; }
   }
 
-  /* TICKER */
   .ticker {
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
@@ -338,14 +284,13 @@
     to { transform: translateX(-50%); }
   }
 
-  /* ABOUT */
   #about {
     padding: 140px 48px;
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 80px; align-items: center;
     position: relative;
   }
-  
+
   .about-heading {
     font-family: 'Playfair Display', serif;
     font-size: clamp(36px, 4vw, 56px);
@@ -357,12 +302,7 @@
     font-size: 13px; line-height: 2; color: var(--muted);
     margin-bottom: 48px;
   }
-  
-  
-  
-  
 
-  /* About visual */
   .about-visual {
     position: relative;
     display: flex; justify-content: center; align-items: center;
@@ -401,17 +341,11 @@
     font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
     color: var(--gold); margin-bottom: 12px;
   }
-  .card-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px; letter-spacing: 0.05em; line-height: 1;
-    color: var(--text);
-  }
   .card-role {
     font-size: 11px; letter-spacing: 0.15em; color: var(--muted);
     margin-top: 8px;
   }
 
-  /* Decorative lines behind card */
   .about-deco {
     position: absolute; z-index: -1;
     width: 400px; height: 530px;
@@ -420,50 +354,6 @@
     transform: rotate(3deg);
   }
 
-  /* CONTENT SECTION */
-  
-  .section-header {
-    display: flex; align-items: baseline; justify-content: space-between;
-    margin-bottom: 60px;
-  }
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(42px, 6vw, 72px);
-    letter-spacing: 0.05em;
-  }
-  .section-sub {
-    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-
-
-  
-  
-  
-  
-  
-  
-  
-  .nl-input::placeholder { color: var(--muted); }
-  .nl-input:focus { border-color: rgba(245,184,0,0.5); }
-  
-  .nl-btn:hover { background: var(--gold-light); }
-
-  /* SOCIALS */
   #socials {
     padding: 80px 48px;
     background: var(--bg2);
@@ -478,9 +368,7 @@
     font-size: 32px; letter-spacing: 0.1em;
     color: var(--muted);
   }
-  .socials-links {
-    display: flex; gap: 24px; flex-wrap: wrap;
-  }
+  .socials-links { display: flex; gap: 24px; flex-wrap: wrap; }
   .social-link {
     display: flex; align-items: center; gap: 12px;
     padding: 14px 24px;
@@ -501,9 +389,7 @@
   .social-link:hover::before { transform: translateX(0); }
   .social-link:hover { color: #000; border-color: var(--gold); }
   .social-link span { position: relative; z-index: 1; }
-  .social-icon { font-size: 16px; position: relative; z-index: 1; }
 
-  /* FOOTER */
   footer {
     padding: 40px 48px;
     border-top: 1px solid var(--border);
@@ -543,9 +429,6 @@
     .hero-right { max-width: 100%; }
     #about { grid-template-columns: 1fr; padding: 80px 24px; }
     .about-visual { display: none; }
-    
-    
-    
     #socials { padding: 60px 24px; }
     footer { padding: 30px 24px; }
     .socials-inner { flex-direction: column; align-items: flex-start; }
@@ -554,36 +437,29 @@
 </head>
 <body>
 
-<!-- Cursor -->
 <div class="cursor" id="cursor">
   <div class="cursor-ring" id="cursorRing"></div>
   <div class="cursor-dot" id="cursorDot"></div>
 </div>
 
-<!-- NAV -->
 <nav id="nav">
-  <div class="nav-logo"><img src="./logo.png" alt="Ash Crypto" style="height:52px;width:auto;" /></div>
+  <div class="nav-logo"><img src="/logo.png" alt="Ash Crypto" style="height:52px;width:auto;" /></div>
   <ul class="nav-links"></ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
-    
     <h1 class="hero-title">
       ASH<br/>
       <span class="accent">CRYPTO</span>
     </h1>
     <p class="hero-sub">
-      Decoding the markets. Cutting through the noise. 
+      Decoding the markets. Cutting through the noise.
       Actionable insights for the serious crypto investor.
     </p>
-    <div class="hero-cta">
-      
-      
-    </div>
+    <div class="hero-cta"></div>
   </div>
 
   <div class="hero-right">
@@ -644,7 +520,6 @@
   </div>
 </section>
 
-<!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner">
     <div class="ticker-item"><span class="dot"></span>Bitcoin Analysis</div>
@@ -655,7 +530,6 @@
     <div class="ticker-item"><span class="dot"></span>Risk Management</div>
     <div class="ticker-item"><span class="dot"></span>DeFi Insights</div>
     <div class="ticker-item"><span class="dot"></span>Technical Analysis</div>
-    <!-- Duplicate for seamless loop -->
     <div class="ticker-item"><span class="dot"></span>Bitcoin Analysis</div>
     <div class="ticker-item"><span class="dot"></span>Market Cycles</div>
     <div class="ticker-item"><span class="dot"></span>Altcoin Research</div>
@@ -667,10 +541,8 @@
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="reveal">
-    
     <h2 class="about-heading">
       Clarity in a<br/><em>chaotic market</em>
     </h2>
@@ -679,11 +551,8 @@
       <br/><br/>
       Whether you're just starting out or managing serious capital, my goal is simple: help you make better decisions with your money.
     </p>
-    </div>
-      
-      
-    </div>
   </div>
+
   <div class="about-visual reveal">
     <div class="about-deco"></div>
     <div class="about-card">
@@ -692,7 +561,7 @@
       <div class="card-corner bl"></div>
       <div class="card-corner br"></div>
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#0a0a0a;">
-        <img src="./logo.png" alt="Ash Crypto" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+        <img src="/logo.png" alt="Ash Crypto" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
       </div>
       <div class="card-content" style="background:none;">
         <div class="card-tag">Est. 2019</div>
@@ -702,13 +571,6 @@
   </div>
 </section>
 
-<!-- CONTENT -->
-
-
-
-
-
-<!-- SOCIALS -->
 <section id="socials">
   <div class="socials-inner">
     <div class="socials-label reveal">FIND ME<br/>ONLINE</div>
@@ -717,7 +579,6 @@
         <span class="social-icon">𝕏</span>
         <span>Ashcrypto</span>
       </a>
-
       <a href="https://t.me/ashcryptotg" target="_blank" class="social-link">
         <span class="social-icon">✈</span>
         <span>Telegram</span>
@@ -726,7 +587,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">ASH CRYPTO</div>
   <div class="footer-text">© 2025 Ash Crypto. All rights reserved.</div>
@@ -734,8 +594,6 @@
 </footer>
 
 <script>
-  // Cursor
-  const cursor = document.getElementById('cursor');
   const dot = document.getElementById('cursorDot');
   const ring = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
@@ -766,13 +624,11 @@
     });
   });
 
-  // Nav scroll
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
   });
 
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -784,7 +640,7 @@
   }, { threshold: 0.15 });
   reveals.forEach(r => observer.observe(r));
 </script>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
 ```
